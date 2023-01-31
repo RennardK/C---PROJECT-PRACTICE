@@ -18,7 +18,7 @@ class one{
     public:
         virtual void get()=0;
         virtual void show()=0;
-}
+};
 
 class info: public one{
     public:
@@ -43,7 +43,7 @@ class info: public one{
                 cout<<"\nNo: "<<num;
                 cout<<"\nTime: "<<time;
        }
-}
+};
 
 ///////////////////////////////////// CLASS RANA /////////////////////////////
 
@@ -79,5 +79,112 @@ class rana: public info {
                 menu();
             }
         }
-        
-}
+};
+
+/////////////////////////////////    class    Dr. Waqar //////////////////////////
+
+class waqar: public info{
+    public:
+        info a1;
+        void get(){
+            system("cls");
+            ofstream out("Rana.txt", ios::app|ios::binary)
+            ai.get()
+            out.write((char*)&a1 sizeof(info));
+            out.close();
+            cout<<"Your entry has been saved";
+            getch();
+            menu();
+        }
+        void show(){
+            ifstream in("rana.txt");
+            if (in==Null)
+            {
+                cout<<"\n\n No Data in the File.";
+                cout<<"\n\n\t\t Press Any Key to continue: ";
+                getch();
+                menu();
+            }
+            else{
+                while (!in.eof()){
+                in.read((char*)&a1,sizeof(a1));
+                a1.show();
+                }
+                in.close();
+                getch();
+                menu();
+            }
+        }
+};
+
+////////////// class Dr. Ahmad //////////////////////////
+
+class Ahmad: public info{
+    public:
+        info a1;
+        void get(){
+            system("cls");
+            ofstream out("Rana.txt", ios::app|ios::binary)
+            ai.get()
+            out.write((char*)&a1 sizeof(info));
+            out.close();
+            cout<<"Your entry has been saved";
+            getch();
+            menu();
+        }
+        void show(){
+            ifstream in("rana.txt");
+            if (in==Null)
+            {
+                cout<<"\n\n No Data in the File.";
+                cout<<"\n\n\t\t Press Any Key to continue: ";
+                getch();
+                menu();
+            }
+            else{
+                while (!in.eof()){
+                in.read((char*)&a1,sizeof(a1));
+                a1.show();
+                }
+                in.close();
+                getch();
+                menu();
+            }
+        }
+};
+
+//////////////////////////////// class staff ///////////////////////
+
+class staff: public one{
+    public:
+        info a1;
+        void get(){
+            system("cls");
+            ofstream out("Rana.txt", ios::app|ios::binary)
+            ai.get()
+            out.write((char*)&a1 sizeof(info));
+            out.close();
+            cout<<"Your entry has been saved";
+            getch();
+            menu();
+        }
+        void show(){
+            ifstream in("rana.txt");
+            if (in==Null)
+            {
+                cout<<"\n\n No Data in the File.";
+                cout<<"\n\n\t\t Press Any Key to continue: ";
+                getch();
+                menu();
+            }
+            else{
+                while (!in.eof()){
+                in.read((char*)&a1,sizeof(a1));
+                a1.show();
+                }
+                in.close();
+                getch();
+                menu();
+            }
+        }
+};
