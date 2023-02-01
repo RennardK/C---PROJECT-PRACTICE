@@ -141,14 +141,12 @@ class Ahmad: public info{
                 getch();
                 menu();
             }
-            else{
+             else{
                 while (!in.eof()){
                 in.read((char*)&a1,sizeof(a1));
                 a1.show();
                 }
-                in.close();
-                getch();
-                menu();
+                in.close()
             }
         }
 };
@@ -185,6 +183,6 @@ class staff: public one{
                 in.close();
                 getch();
                 menu();
-            }
+            } 
         }
 };
