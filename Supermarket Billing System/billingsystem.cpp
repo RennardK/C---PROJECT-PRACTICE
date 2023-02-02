@@ -146,6 +146,7 @@ goto m;
 }
 
 void shopping :: add(){
+    m:
     fstream data;
     int c;
     int token=0;
@@ -163,15 +164,75 @@ void shopping :: add(){
     cout<<"\n\t\t\tDiscount on the Product";
     cin>>dis;
 
-    data.open("database.txt", ios::in)
-    if (!data){ ///if the file doesn't exist, we then create the file
-        data.open("database.txt", ios::app|ios::out){
+    data.open("database.txt", ios::in)             //open the file in readind mode
+    if (!data){                                   //if the file doesn't exist, we then create the file
+        data.open("database.txt", ios::app|ios::out);
+        data<<" "<<pcode<<" "<<pname<<" "<<price<<" "<<dis<<endl;
+        data.close()
+        }
+    else{                                  // but if the file exist, we read from the fle with the variable declared above
+        data<<c<<n<<p<<d<<endl;                     // Initializing the index of file
+
+        while (!data.eof()){
+            if(c==pcode){
+                token++;
+            }
+            data<<c<<n<<p<<d;
+            }
+
+            data.close()
+        }
+    
+    if (token==1)
+        {
+            menu()
+        }
+        if (token==1){
+            goto m;
+        }
+        else{
+            data.open("database.txt", ios::app|ios::out);
             data<<" "<<pcode<<" "<<pname<<" "<<price<<" "<<dis<<endl;
             data.close()
         }
-    else{ // but if the file exist, we read from the fle with the variable declared above
-        data<<c<<n<<p<<d<<endl; // Initializing the index of file
-
+        cout<<"\n\n\t\t\tRecord Inserted!";
     }
+
+
+void shopping:: edit(){
+    fstream data, data1;
+    int pkey;
+    int token=0;
+    int c;
+    int p;
+    int d;
+    string n;
+
+    cout<<"\n\n\t\t\tModify the record";
+    cout<<"\n\n\t\t\tProduct code: ";
+    cin>>pkey;
+    data.open("database.text", ios::in);
+    if(!data){
+        cout "\nFile doesn't exist";
+    }
+    else{
+        data1.open("database2.txt", ios::app|ios::in);
+        data<<pcode<<pname<<price<<dis;
+        while (!data.eof())
+        {
+            if(pkey==pcode){
+                cout<<"\n\t\tProduct new code";
+                cin<<c;
+                cout<<"\n\t\tName of the product";
+                cin>>n;
+                cout<<"\n\t\tPrice";
+                cin>>p;
+                cout<<"\n\t\tDiscount";
+                cin>>d;
+                
+            }
+        }
+        
     }
 }
+
