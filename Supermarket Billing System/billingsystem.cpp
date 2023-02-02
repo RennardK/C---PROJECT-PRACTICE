@@ -229,10 +229,26 @@ void shopping:: edit(){
                 cin>>p;
                 cout<<"\n\t\tDiscount";
                 cin>>d;
-                
+                data1<<" "<<c<<" "<<n<<" "<<p<<" "<<d<<"\n";
+                cout<<"Record edited"; 
             }
+            else
+            {
+                data1<<" "<<pcode<<" "<<price<<" "<<dis<<"\n";
+            }
+            data>>pcode>>pname>>price>>dis;
         }
-        
+        data.close();
+        data1.close();
+
+        remove("database.txt");
+        rename("database1.txt", "database.txt")
+        if(token==0){
+            cout<<"\n\nSorry! Record not found";
+        }
     }
 }
 
+void shopping:: rem(){
+    
+}
