@@ -1,4 +1,6 @@
 #include <iostream>
+#include<string>
+#include<cmath>
 #include <fstream>
 
 using namespace std;
@@ -250,5 +252,90 @@ void shopping:: edit(){
 }
 
 void shopping:: rem(){
+    fstream data, data1;
+    int pkey;
+    int token=0;
+    cout<<"\n\n\t\t Delete product";
+    cout<<"\n\t\t Product code";
+    cin>>pkey;
+    data.open("database.txt", ios::in);
+    if (!data)
+    {
+        cout<<"\n\tData doesn't exist";
+    }
+    else
+    {
+        data1.open("database.txt", ios::app|ios::in);
+        data>>pcode>>pname>>price>>dis;
+
+        while(!data.eof()){
+            if (pcode==pkey){
+                cout<<"\n\n\tProduct deleted successfully";
+                token++;
+            }
+            else
+            {
+                data<<" "<<pname<<" "<<pcode<<" "<<price<<" "<<disc"\n";
+            }
+            data>>pcode>>pname>>price>>dis;
+        }
+        data.close()
+        data1.close()
+        remove("database.txt");
+        rename("database1.txt", "database.txt");
+
+        if(token==0){
+            cout<<"\n\t\tRecord Not Found!";
+        }
+    }
+}
+
+void shopping::list(){
+    fstraem data;
+    data.open("database.txt", ios::in);
+    cout<<"\n\n__________________________________________\n";
+    cout<<"ProNo\t\tName\t\tPrice";
+    cout<<"\n\n__________________________________________\n";
+    data>>pcode>>pname>>price>>dis;
+    while(!data.eof){
+        cout<<pcode<<"\t\t"<<pname<<"\t\t"<<price;
+        data>>pcode<<pname<<price<<dis;
+    }
+    data.close();
+}
+
+void shopping::receipt(){
+    fstream data;
+    int arrc[100];
+    int arrq[100];
+    char choice;
+    int c=0;
+    float amount=0;
+    float dis=0;
+    float total=0;
+    cout<<"\n\n\t\t\tRECEIPT";
+    data.open("database.txt", ios::in);
+
+    if(!data){
+        cout<<"\n\nEmpty Database";
+    }
+    else
+    {
+        data.close();
+        list();
+        cout<<"\n___________________________________\n";
+        cout<<"\n|                                  \n";
+        cout<<"\n       Place the Order             \n";
+        cout<<"\n|                                  \n";
+        cout<<"\n___________________________________\n";
+        /// run a specific part of the code based repeatedly and another based on the choice 
+        do{
+            cout<<"\n\nEnter product code";
+            cin<<arrc[c];
+            cout<<"\n\nEnter the product quantity";
+            cin>>arrq[c];
+            for
+        }
+    }
     
 }
