@@ -352,7 +352,7 @@ void shopping::receipt(){
                 cout<<"\nProductNo\tProduct Name\tProduct Quantity\tPrice\tAmount\tAmount with discount";
                 for(int i=0;i<c,i++)
                 { //use the for_loop to iterate through the file
-                    data.open("database.txt",ios::in)
+                    data.open("database.txt",ios::in);
                     data>>pcode>>pname>>price>>dis;
                     while(!data.eof)
                     {
