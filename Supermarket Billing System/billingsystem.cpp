@@ -334,8 +334,46 @@ void shopping::receipt(){
             cin<<arrc[c];
             cout<<"\n\nEnter the product quantity";
             cin>>arrq[c];
-            for
-        }
+            //check if the product code being entred by the user matches with the product code that is being already exists
+             // we will display a message that's a duplicate code
+            for(int i, i<c, i++){
+                if(arrc[c]==arrc[i]){
+                    cout<<"\n\n\t\tDuplicate product code! Please try again";
+                    goto m;
+                }
+                c++;
+                cout<<"\nDo you want to buy another product? If yes then press y else no";
+                cin>>choice;
+                }
+            }
+            while (choice==y)   
+            
+                cout<<"\n\t\t\t________________________RECEIPT______________________";
+                cout<<"\nProductNo\tProduct Name\tProduct Quantity\tPrice\tAmount\tAmount with discount";
+                for(int i=0;i<c,i++)
+                { //use the for_loop to iterate through the file
+                    data.open("database.txt",ios::in)
+                    data>>pcode>>pname>>price>>dis;
+                    while(!data.eof)
+                    {
+                        if(pcode==arrc[i])
+                        {
+                            amount=price*arrq[i];
+                            dis=(amount-amount*dis/100);
+                            total=total+dis;
+                            cout<<"\n"<<"\t\t"<<pcode<<"\t\t"<<pname<<"\t\t"<<arrq[i]<<"\t\t"<<price<<"\t\t"<<amount<<"\t\t"<<dis
+                        }
+                        //to iterate the file
+                        data>>pcode>>pname>>price>>dis;
+                    }
+                }
+                data.close()
+            }
+            cout<<"\n\n______________________________________";
+            cout<<"\n Total amount: "<< total;         
     }
-    
+
+int main(){
+    shopping s;
+    s.menu()
 }
